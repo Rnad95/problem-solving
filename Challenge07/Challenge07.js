@@ -98,14 +98,14 @@ const cvFormatter = (arr) => {
     // write your code here
     let cv = [];
     let fName = [];
-
+    // let count=0;
 
     for (let x = 0; x < arr.length; x++) {
         if (arr[x].firstName === null || arr[x].lastName === null) {
             if (arr[x].firstName == null)
                 fName[x] = arr[x].lastName;
 
-            if (arr[x].lastName == null)
+            if (arr[x].LastName == null)
                 fName[x] = arr[x].firstName;
         }
         else
@@ -114,17 +114,15 @@ const cvFormatter = (arr) => {
 
     }
 
-    // console.log(fName)
     // console.log(arr[0].tech)
     for (let i = 0; i < arr.length; i++) {
 
         if (arr[i].yearsOfExperience > 1)
             cv.push({ "fullName": fName[i], "tech": arr[i].tech });
-        // cv[i] = cv[ `fullName: ${fName[i]},\n tech: ${arr[i].tech} `];
-
 
 
     }
+
     return cv;
 };
 
@@ -180,15 +178,16 @@ const applicationsStatics = (cvs) => {
         if (cvs[x].tech === "JS")
             result.javaScript_Devs++;
 
-        if (cvs[x].firstName == null || cvs[x].lastName == null || cvs[x].yearsOfExperience < 1) {
+        if (cvs[x].firstName == null || cvs[x].lastName == null)
             count++;
 
-        }
+
 
 
     }
-    result.rejectedApplicants = count;
 
+
+    result.rejectedApplicants = count
     return result;
 
 };
@@ -206,7 +205,7 @@ const applicationsStatics = (cvs) => {
 let data = {
     SchoolName: "David Academy",
     Capacity: 1000,
-    grades: [               // data.grades[x].classes[j].classScores[k]
+    grades: [
         {
             grade: "First",
             numberOFClasses: 3,
@@ -309,7 +308,7 @@ let data = {
             ]
         },
     ],
-};// {{[{[]}]}}
+};
 
 //  Note that:
 //  1- This is not the exact data you will be getting every time and the solution should be dynamic
@@ -318,22 +317,19 @@ let data = {
 const classesAvg = (data) => {
     // write your code here
     let avg = [];
-    // for (let i = 0; i < data.length; i++) {
-    //     for (let j = 0; j < data.classes.length; j++) {
-    //         let sum = 0;
-    //         console.log("classess");
-    //         for (let k = 0; k < data.classes.classScoreslength; k++) {
-    //             sum += data.grades[x].classes[j].classScores[k];
-    //             console.log("Sum " + sum)
-    //         } // data.grades[x].classes[j].avg
-    //         let average = sum / data.classes.classScoreslength
-    //         Math.floor(average);
-    //         avg.push(average)
-    //     }
-    // }
+    let sum = 0;
+    for (let i = 0; i < data.length; i++) {
+        let avgClasses = 0;
+        data.grades[i][2][2];
+        for (let x = 0; x < classScores.length; x++) {
+            sum += classScores[x];
+            avgClasses = sum / (classScores.length);
 
-    const keys= Object.keys()
-    console.log(avg)
+
+        }
+        avg = avg.push(avgClasses);
+    }
+
     return avg;
 };
 
