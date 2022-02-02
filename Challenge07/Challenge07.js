@@ -122,7 +122,6 @@ const cvFormatter = (arr) => {
 
 
     }
-
     return cv;
 };
 
