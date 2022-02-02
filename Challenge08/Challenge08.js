@@ -145,19 +145,29 @@ const getInfo = (arr) => {
 const getStudents = (arr) => {
   // write your code here
   let databaseArr = [];
-  let testArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length; j++) {
-      if (arr[i] === courses[i].Students[j])
-        databaseArr.push({ "Students: ": arr[i], "course: ": courses[i].course });
-
-    }
 
 
-  }
 
+  const keys = Object.keys(courses);
+
+  keys.forEach((key, index) => {
+    let partOfData = courses[key].Students;
+
+    let sum = 0;
+    partOfData.forEach((value) => {
+      for (let i = 0; i < arr.length; i++) {
+   
+        if (arr[i] === value)
+          databaseArr.push({ "Students": arr[i], "course": courses[i].course });
+          
+        }
+
+    })
+
+  });
   return databaseArr;
 };
+
 
 module.exports = {
   customerAndAge,
